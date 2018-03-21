@@ -156,7 +156,15 @@
     Assets:Test               10.00 EUR {{12.30 USD}}[2018-03-16](whatever)@@12.30 USD
     Equity:Opening-Balance   -12.30 USD
 
-2018-03-20 * Test
+2018-03-20 * MR is treated a commodity
     Assets:Test                42.30 USD @@ 5641 MR
     Assets:Test                            -5641 MR
+
+2018-03-21 * KRISFLYER is treated as currency
+    Assets:Test                  1 KRISFLYER @ 1 MR
+    Equity:Opening-Balance
+
+2018-03-21 * KRISFLYER is treated as currency but MR is not
+    Assets:Test                  1 MR @ 1 KRISFLYER
+    Equity:Opening-Balance
 

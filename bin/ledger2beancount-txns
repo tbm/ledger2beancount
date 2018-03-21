@@ -474,16 +474,15 @@ while (my $l = <>) {
 		# Most currencies have 3 characters (e.g. EUR, USD, GBP)
 		# whereas commodities often have more (e.g. the ISIN).
 		# Therefore, we assume the cost should not be kept if
-		# both currencies have 3 characters.  Since this won't
-		# work in all cases, we also check for a list of
-		# commodities.  Similarly, we allow users to configure
-		# commodities that should be treated as currencies.
+		# the posting's commodity consists of 3 characters.
+		# Since this won't work in all cases, we also check for
+		# a list of commodities.  Similarly, we allow users to
+		# configure commodities that should be treated as currencies.
 		my $commodity1 = $+{commodity};
 		my $commodity2 = (split / /, replace_commodity $+{lot_price}, 2)[1];
-		if ((length $commodity1 == 3 && length $commodity2 == 3 &&
-		    !($commodity1 ~~ @{$config->{currency_is_commodity}})) ||
-		    $commodity1 ~~ @{$config->{commodity_is_currency}} ||
-		    $commodity2 ~~ @{$config->{commodity_is_currency}}) {
+		if ((length $+{commodity} == 3 &&
+		    !($+{commodity} ~~ @{$config->{currency_is_commodity}})) ||
+		    $+{commodity} ~~ @{$config->{commodity_is_currency}}) {
 		    $l = sprintf "$+{posting} %s %s", "@" x length $+{at}, replace_commodity $+{lot_price};
 		} else {
 		    $l = sprintf "$+{posting} %s%s%s%s", "{" x length $+{at},
