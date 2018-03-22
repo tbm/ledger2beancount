@@ -22,3 +22,19 @@
     Assets:Test                        10.00 EUR
     Equity:Opening-Balance            -10.00 EUR
 
+; This is a single line comment,
+
+#  and this,
+
+%   and this,
+
+|    and this,
+
+*     and this.
+
+; This is a single line comment,
+#  and this,
+%   and this,
+|    and this,
+*     and this.
+
