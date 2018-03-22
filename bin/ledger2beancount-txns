@@ -367,11 +367,71 @@ print "\n";
 
 # MAIN CONVERSION LOOP
 
-while (my $l = <>) {
+#tbm
+sub read_stanza2($) {
+    my ($input_ref) = @_;
+
+    my $stanza = "";
+    my $l = @{$input_ref} ? @{$input_ref}[0] : "";
+    while ($l =~ /^\h+/) {
+	$stanza .= shift @{$input_ref} unless $l =~ /^$/;
+	$l = @{$input_ref} ? @{$input_ref}[0] : "";
+    }
+    return $stanza;
+}
+
+sub read_stanza($) {
+    my ($input_ref) = @_;
+
+    my @stanza = ();
+    my $l;
+    do {
+	$l = @{$input_ref}[0];
+	push @stanza, shift @{$input_ref} if $l =~ /^\h+/;
+    } while ($l =~ /^\h+/ && @{$input_ref});
+    return @stanza;
+}
+
+#my @stanza
+
+my @input = <stdin>;
+while (@input) {
+    my $l = shift @input;
+#    my $next_line = $input[0];
+    chomp $l;
+#print "---$l---\n";
     # print "D: line: ", "\n"; dump_cur_txn(); print "\n";
 
     # handle line indentation once and for all
     chomp $l;
+
+    my @stanza;
+
+    if ($l =~ /^.?comment/) {
+        @stanza = read_stanza \@input;
+        $l = shift @input;
+        assert $l =~ "^end";
+        print join "", map "; $_", @stanza;
+        next;
+    } elsif ($l =~ /^.?commodity\s+(.+)/) {
+        printf "$config->{commodities_date} commodity %s\n", map_commodity $1;
+        @stanza = read_stanza \@input;
+        foreach my $s (@stanza) {
+            print $s;
+        }
+        next;
+    } elsif ($l =~ /^[0-9]/) {
+        #print "DO: trans\n";
+        #my $stanza = read_stanza \@input;
+    }# elsif ($l =~ /^\s*$/) {
+     #   print $l;
+     #   next;
+    #}
+# else {
+#        print "Don't know how to handle line: $l\n";
+#    }
+#    next;
+
     $l =~ /^(?<indent>\s*)(?<line>.*)/;
     my $depth = ceil(length($+{indent}) / $config->{ledger_indent});
     # round up with ceil() because we mix 4 (postings) and 2 (posting tags) indent in ledger
