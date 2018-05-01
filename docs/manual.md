@@ -461,10 +461,7 @@ would become the following in beancount:
 
 ### Comments
 
-Comments are supported.  Since beancount currently [doesn't allow
-full-line comments within
-transactions](https://bitbucket.org/blais/beancount/issues/143), these
-are stored as metadata.
+Comments are supported.
 
 
 ### Virtual costs

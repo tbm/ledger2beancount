@@ -14,7 +14,7 @@ formatting, etc.) can be preserved.
 The syntax of beancount is expected to become slightly less restrictive
 as some missing features are implemented (such as UTF-8 for account names
 and tags on a posting-level).  ledger2beancount aims to be compatible with
-the latest official release of beancount.
+the latest official release of beancount. < FIXME
 
 Please [read the manual](docs/manual.md) on how to install, configure and
 use ledger2beancount.  The [supported features](docs/manual.md#features)
