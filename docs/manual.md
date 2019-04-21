@@ -1,3 +1,14 @@
+---
+title: ledger2beancount
+subtitle: Ledger to Beancount converter
+author:
+    - Stefano Zacchiroli
+    - Martin Michlmayr
+date: April 2019
+documentclass: scrartcl
+toc: true
+---
+
 ledger2beancount
 ================
 
