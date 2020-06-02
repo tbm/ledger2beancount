@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Stefano Zacchiroli, Martin Michlmayr">
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Configuration - ledger2beancount</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  <link href="../css/toc.css" rel="stylesheet">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Configuration";
+    var mkdocs_page_input_path = "configuration.md";
+    var mkdocs_page_url = "/ledger2beancount/configuration/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> ledger2beancount</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Welcome</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Introduction</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../features/">Features</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../compatibility/">Compatibility</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../installation/">Installation</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../usage/">Usage</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Configuration</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#configuration">Configuration</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#input-options">Input options</a></li>
+        
+            <li><a class="toctree-l4" href="#other-options">Other options</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../guide/">User Guide</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">About</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../changelog/">Release notes</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../contributing/">Bugs and contributions</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">ledger2beancount</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Introduction &raquo;</li>
+        
+      
+    
+    <li>Configuration</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/beancount/ledger2beancount/edit/master/docs/configuration.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link"></a></h2>
+<p>ledger2beancount can use a configuration file.  It will search for
+the config file <code>ledger2beancount.yml</code> in the current working directory.
+If that file is not found, it will look for
+<code>$HOME/.config/ledger2beancount/config.yml</code>.  You can also pass an
+alternative config file via <code>--config/-c</code>.  The file must end in <code>.yml</code>
+or <code>.yaml</code>.  See the sample config file for the variables you can use.</p>
+<p>While the configuration file is optional, you may have to define a
+number of variables for ledger2beancount to work correctly with your
+ledger files:</p>
+<ul>
+<li><code>ledger_indent</code> sets the indentation level used in your ledger file
+  (by default <code>4</code>).</li>
+<li><code>date_format</code> has to be configured if you don't use the date format
+  <code>YYYY-MM-DD</code>.</li>
+<li><code>decimal_comma</code> has to be set to <code>true</code> if you use commas as the
+  decimal separator (for example, <code>10,12 EUR</code> meaning 10 Euro and
+  12 cents).</li>
+<li><code>commodity_map</code> defines mappings from ledger to beancount commodities.
+  You have to set this if you use commodity codes like <code>€</code> or <code>£</code> (to
+  map them to <code>EUR</code> and <code>GBP</code>, respectively).</li>
+</ul>
+<p>Additionally, these options are useful to configure beancount:</p>
+<ul>
+<li><code>operating_currencies</code>: a list of the currencies you frequently use.</li>
+<li><code>beancount_header</code>: a file which is embedded at the beginning of
+   the converted beancount file which can include beancount <code>option</code>
+   statements, <code>plugin</code> directives, <code>query</code> information and more.</li>
+</ul>
+<p>Other variables can be set to use various functionality offered by
+ledger2beancount.  All variables are described below.  Please read
+the <a href="../guide/">user guide</a> to learn how to use these variables to
+configure ledger2beancount for your needs.</p>
+<h3 id="input-options">Input options<a class="headerlink" href="#input-options" title="Permanent link"></a></h3>
+<p>The following options may be needed for ledger2beancount to interpret
+your ledger files correctly.</p>
+<dl>
+<dt>date_format</dt>
+<dd>
+<p>The date format used in your ledger file (default: <code>%Y-%m-%d</code>).</p>
+</dd>
+<dt>date_format_no_year</dt>
+<dd>
+<p>The date format for dates without the year when ledger's <code>Y</code>/<code>year</code>
+directive is used (default: <code>%m-%d</code>).</p>
+</dd>
+<dt>ledger_indent</dt>
+<dd>
+<p>Sets the indentation level used in your ledger file (default: <code>4</code>).</p>
+</dd>
+<dt>decimal_comma</dt>
+<dd>
+<p>Parses amounts with the decimal comma (e.g. <code>10,00 EUR</code>).  Set this
+option to <code>true</code> if you use option <code>--decimal-comma</code> in ledger.</p>
+</dd>
+<dt>hledger</dt>
+<dd>
+<p>Tells ledger2beancount whether to attempt to parse hledger-specific
+features.</p>
+</dd>
+</dl>
+<h3 id="other-options">Other options<a class="headerlink" href="#other-options" title="Permanent link"></a></h3>
+<dl>
+<dt>beancount_indent</dt>
+<dd>
+<p>Sets the indentation level for the generated beancount file (default: <code>2</code>).</p>
+</dd>
+<dt>operating_currencies</dt>
+<dd>
+<p>A list of frequently used currencies.  This is used by fava, the web
+UI for beancount.</p>
+</dd>
+<dt>automatic_declarations</dt>
+<dd>
+<p>Emit account and commodity declarations. (Default: <code>true</code>)</p>
+<p>Note: the declarations done in ledger via <code>account</code> and
+<code>commodity</code> declarations are always converted.  If this option
+is <code>true</code>, declarations are created for those which have not
+been explicitly declared in ledger but used.</p>
+</dd>
+<dt>account_open_date</dt>
+<dd>
+<p>The date used to open accounts (default: <code>1970-01-01</code>).</p>
+</dd>
+<dt>commodities_date</dt>
+<dd>
+<p>The date used to create commodities (default: <code>1970-01-01</code>).</p>
+</dd>
+<dt>beancount_header</dt>
+<dd>
+<p>Specifies a file which serves as a beancount "header", i.e. it's put
+at the beginning of the converted beancount file.  You can use such
+a header to specify options for beancount, such as <code>option "title"</code>,
+define <code>plugin</code> directives or beancount <code>query</code> information.</p>
+</dd>
+<dt>ignore_marker</dt>
+<dd>
+<p>Specifies a marker that tells ledger2beancount to ignore a line if the
+marker is found.</p>
+</dd>
+<dt>keep_marker</dt>
+<dd>
+<p>Specifies a marker that tells ledger2beancount to take a line from the
+input that is commented out, uncomment it and display it in the output.</p>
+</dd>
+<dt>convert_virtual</dt>
+<dd>
+<p>Specifies whether virtual postings should be converted.  If set to
+<code>true</code>, virtual postings in brackets will be made into real accounts.
+(Virtual postings in parentheses are always ignored, regardless of this
+option.)</p>
+</dd>
+<dt>account_map</dt>
+<dd>
+<p>Specifies a hash of account names to be mapped to other account names.</p>
+</dd>
+<dt>account_regex</dt>
+<dd>
+<p>Specifies a hash of regular expressions to replace account names.</p>
+</dd>
+<dt>commodity_map</dt>
+<dd>
+<p>Specifies a mapping of ledger commodities to beancount commodities.</p>
+</dd>
+<dt>metadata_map</dt>
+<dd>
+<p>Specifies a mapping of ledger metadata keys to corresponding beancount keys.</p>
+</dd>
+<dt>payee_tag</dt>
+<dd>
+<p>Specify a metadata tag (after the mapping done by <code>metadata_map</code>) used to set the payee.</p>
+</dd>
+<dt>payer_tag</dt>
+<dd>
+<p>Specify a metadata tag (after the mapping done by <code>metadata_map</code>) used to set the payee.</p>
+</dd>
+<dt>payee_split</dt>
+<dd>
+<p>Specifies a list of regular expressions to split ledger's payee field
+into payee and narration.  You have to use the named capture groups
+<code>payee</code> and <code>narration</code>.</p>
+</dd>
+<dt>payee_match</dt>
+<dd>
+<p>Specifies a list of regular expressions and corresponding payees.  The
+whole ledger payee becomes the narration and the matched payee from the
+regular expression becomes the payee.</p>
+</dd>
+<dt>postdate_tag</dt>
+<dd>
+<p>Specifies the metadata tag to be used to store posting dates. (Use the
+empty string if you don't want the metadata to be added to beancount.)</p>
+</dd>
+<dt>auxdate_tag</dt>
+<dd>
+<p>Specifies the metadata tag to be used to store auxiliary dates (also
+known as effective dates; or <code>date2</code> in hledger). (Use the empty
+string if you don't want the metadata to be added to beancount.)</p>
+</dd>
+<dt>code_tag</dt>
+<dd>
+<p>Specifies the metadata tag to be used to store transaction codes.
+(Use the empty string if you don't want the metadata to be added to
+beancount.)</p>
+</dd>
+<dt>link_match</dt>
+<dd>
+<p>Specifies a list of regular expressions that will cause a tag to be
+rendered as a link.</p>
+</dd>
+<dt>link_tags</dt>
+<dd>
+<p>Specifies a list of metadata tags whose values should be converted to
+beancount links instead of metadata.  Tags are case insensitive and
+values must not contain whitespace.</p>
+</dd>
+<dt>currency_is_commodity</dt>
+<dd>
+<p>Specifies a list of commodities that should be treated as commodities
+rather than currencies even though they consist of 3 characters (which
+is usually a characteristic of a currency).  Expects beancount
+commodities (i.e. after transformation and mapping).</p>
+</dd>
+<dt>commodity_is_currency</dt>
+<dd>
+<p>Specifies a list of commodities that should be treated as currencies
+(in the sense that cost is not retained).  Expects beancount
+commodities (i.e. after transformation and mapping).</p>
+</dd>
+</dl>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../guide/" class="btn btn-neutral float-right" title="User Guide">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../usage/" class="btn btn-neutral" title="Usage"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/beancount/ledger2beancount/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../usage/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../guide/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>

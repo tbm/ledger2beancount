@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Stefano Zacchiroli, Martin Michlmayr">
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Installation - ledger2beancount</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  <link href="../css/toc.css" rel="stylesheet">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Installation";
+    var mkdocs_page_input_path = "installation.md";
+    var mkdocs_page_url = "/ledger2beancount/installation/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> ledger2beancount</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Welcome</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Introduction</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../features/">Features</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../compatibility/">Compatibility</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Installation</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#installation">Installation</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#arch-linux">Arch Linux</a></li>
+        
+            <li><a class="toctree-l4" href="#debian">Debian</a></li>
+        
+            <li><a class="toctree-l4" href="#macos">macOS</a></li>
+        
+            <li><a class="toctree-l4" href="#microsoft-windows">Microsoft Windows</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../usage/">Usage</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../configuration/">Configuration</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../guide/">User Guide</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">About</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../changelog/">Release notes</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../contributing/">Bugs and contributions</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">ledger2beancount</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Introduction &raquo;</li>
+        
+      
+    
+    <li>Installation</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/beancount/ledger2beancount/edit/master/docs/installation.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link"></a></h2>
+<p>ledger2beancount is a Perl script and relies on the following Perl
+modules:</p>
+<ul>
+<li><code>Config::Onion</code></li>
+<li><code>Date::Calc</code></li>
+<li><code>DateTime::Format::Strptime</code></li>
+<li><code>File::BaseDir</code></li>
+<li><code>Getopt::Long::Descriptive</code></li>
+<li><code>String::Interpolate</code></li>
+<li><code>YAML::XS</code></li>
+</ul>
+<p>You can install the required Perl modules with
+<a href="https://metacpan.org/pod/distribution/App-cpanminus/bin/cpanm">cpanminus</a>:</p>
+<pre><code class="shell">cpanm --installdeps .
+</code></pre>
+
+<p>If you use Debian, you can install the dependencies with this command:</p>
+<pre><code class="shell">sudo apt install libconfig-onion-perl libdate-calc-perl \
+    libfile-basedir-perl libyaml-libyaml-perl \
+    libgetopt-long-descriptive-perl libdatetime-format-strptime-perl \
+    libstring-interpolate-perl
+</code></pre>
+
+<p>Note that <code>String::Interpolate</code> (<code>libstring-interpolate-perl</code>) is not
+in Debian stable.</p>
+<p>ledger2beancount itself consists of one script.  You can clone the
+repository and run the script directly or copy it to <code>$HOME/bin</code> or
+a similar location:</p>
+<pre><code class="shell">git clone https://github.com/zacchiro/ledger2beancount/
+./bin/ledger2beancount examples/simple.ledger
+</code></pre>
+
+<h3 id="arch-linux">Arch Linux<a class="headerlink" href="#arch-linux" title="Permanent link"></a></h3>
+<p>ledger2beancount is available on <a href="https://aur.archlinux.org/packages/ledger2beancount/">AUR</a>.</p>
+<h3 id="debian">Debian<a class="headerlink" href="#debian" title="Permanent link"></a></h3>
+<p>ledger2beancount is <a href="https://packages.debian.org/ledger2beancount">available in Debian</a>.</p>
+<h3 id="macos">macOS<a class="headerlink" href="#macos" title="Permanent link"></a></h3>
+<p>You can install <code>cpanm</code> from Homebrew:</p>
+<pre><code class="shell">brew install cpanminus
+</code></pre>
+
+<h3 id="microsoft-windows">Microsoft Windows<a class="headerlink" href="#microsoft-windows" title="Permanent link"></a></h3>
+<p>You can install <a href="http://strawberryperl.com/">Strawberry Perl</a> on Windows
+and use <code>cpanm</code> as described above to install the required Perl modules.
+ledger2beancount is not packaged for Windows but you can clone this Git
+repository and run the script.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../usage/" class="btn btn-neutral float-right" title="Usage">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../compatibility/" class="btn btn-neutral" title="Compatibility"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/beancount/ledger2beancount/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../compatibility/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../usage/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>

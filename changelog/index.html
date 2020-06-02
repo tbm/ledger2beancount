@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Stefano Zacchiroli, Martin Michlmayr">
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Release notes - ledger2beancount</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  <link href="../css/toc.css" rel="stylesheet">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Release notes";
+    var mkdocs_page_input_path = "changelog.md";
+    var mkdocs_page_url = "/ledger2beancount/changelog/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> ledger2beancount</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Welcome</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Introduction</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../features/">Features</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../compatibility/">Compatibility</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../installation/">Installation</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../usage/">Usage</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../configuration/">Configuration</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../guide/">User Guide</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">About</span>
+    <ul class="subnav">
+                <li class=" current">
+                    
+    <a class="current" href="./">Release notes</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#ledger2beancount-releases">ledger2beancount releases</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#22-2020-05-30">2.2 (2020-05-30)</a></li>
+        
+            <li><a class="toctree-l4" href="#21-2020-04-06">2.1 (2020-04-06)</a></li>
+        
+            <li><a class="toctree-l4" href="#20-2020-02-22">2.0 (2020-02-22)</a></li>
+        
+            <li><a class="toctree-l4" href="#18-2019-06-12">1.8 (2019-06-12)</a></li>
+        
+            <li><a class="toctree-l4" href="#17-2019-04-22">1.7 (2019-04-22)</a></li>
+        
+            <li><a class="toctree-l4" href="#16-2019-03-25">1.6 (2019-03-25)</a></li>
+        
+            <li><a class="toctree-l4" href="#15-2019-01-30">1.5 (2019-01-30)</a></li>
+        
+            <li><a class="toctree-l4" href="#14-2018-12-01">1.4 (2018-12-01)</a></li>
+        
+            <li><a class="toctree-l4" href="#13-2018-09-29">1.3 (2018-09-29)</a></li>
+        
+            <li><a class="toctree-l4" href="#12-2018-05-17">1.2 (2018-05-17)</a></li>
+        
+            <li><a class="toctree-l4" href="#11-2018-05-01">1.1 (2018-05-01)</a></li>
+        
+            <li><a class="toctree-l4" href="#10-2018-03-30">1.0 (2018-03-30)</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../contributing/">Bugs and contributions</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">ledger2beancount</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>About &raquo;</li>
+        
+      
+    
+    <li>Release notes</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/beancount/ledger2beancount/edit/master/docs/changelog.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="ledger2beancount-releases">ledger2beancount releases<a class="headerlink" href="#ledger2beancount-releases" title="Permanent link"></a></h2>
+<h3 id="22-2020-05-30">2.2 (2020-05-30)<a class="headerlink" href="#22-2020-05-30" title="Permanent link"></a></h3>
+<ul>
+<li>Show warning for unknown <code>apply</code> directive</li>
+<li>Recognize <code>apply rate</code> directive (an alias of <code>apply fixed</code>)</li>
+<li>Don't convert meta-data on ignored virtual postings but keep as comments</li>
+<li>Update location of beancount repository</li>
+</ul>
+<h3 id="21-2020-04-06">2.1 (2020-04-06)<a class="headerlink" href="#21-2020-04-06" title="Permanent link"></a></h3>
+<ul>
+<li>Handle postings with posting dates and comments but no amount</li>
+<li>Show transactions with only one posting (without <code>bucket</code>)</li>
+<li>Adding spacing between automatic declarations</li>
+<li>Preserve preliminary info at the top</li>
+</ul>
+<h3 id="20-2020-02-22">2.0 (2020-02-22)<a class="headerlink" href="#20-2020-02-22" title="Permanent link"></a></h3>
+<ul>
+<li>Handle comments in <code>account</code> and <code>commodity</code> declarations</li>
+<li>Handle transactions with a single posting (without <code>bucket</code>)</li>
+<li>Handle empty metadata values</li>
+<li>Rewrite Emacs modeline</li>
+</ul>
+<h3 id="18-2019-06-12">1.8 (2019-06-12)<a class="headerlink" href="#18-2019-06-12" title="Permanent link"></a></h3>
+<ul>
+<li>Add support for <code>apply year</code></li>
+<li>Fix incorrect account mapping of certain accounts</li>
+<li>Handle fixated commodity and postings without amount</li>
+<li>Improve behaviour for invalid <code>end</code> without <code>apply</code></li>
+<li>Improve error message when date can't be parsed</li>
+<li>Deal with account names consisting of a single letter</li>
+<li>Ensure account names don't end with a colon</li>
+<li>Skip ledger directives <code>eval</code>, <code>python</code>, and <code>value</code></li>
+<li>Don't assume all filenames for <code>include</code> end in <code>.ledger</code></li>
+<li>Support <code>price</code> directives with commodity symbols</li>
+<li>Support decimal commas in <code>price</code> directives</li>
+<li>Don't misparse balance assignment as commodity</li>
+<li>Ensure all beancount commodities have at least 2 characters</li>
+<li>Ensure all beancount metadata keys have at least 2 characters</li>
+<li>Don't misparse certain metadata as implicit conversion</li>
+<li>Avoid duplicate <code>commodity</code> directives for commodities with name collisions</li>
+<li>Recognise deferred postings</li>
+<li>Recognise <code>def</code> directive</li>
+</ul>
+<h3 id="17-2019-04-22">1.7 (2019-04-22)<a class="headerlink" href="#17-2019-04-22" title="Permanent link"></a></h3>
+<ul>
+<li>Don't misparse account and commodity with mixed tab/space separators</li>
+<li>Rename account names consisting of a root name without subaccount</li>
+<li>Warn when non-standard root names are used</li>
+<li>Avoid duplicate open directives for accounts with name collisions</li>
+<li>Don't warn for renamed tags that won't show up in the beancount file</li>
+<li>Add <code>account_regex</code> option to mass rename account names</li>
+<li>Add man page and improve documentation</li>
+</ul>
+<h3 id="16-2019-03-25">1.6 (2019-03-25)<a class="headerlink" href="#16-2019-03-25" title="Permanent link"></a></h3>
+<ul>
+<li>Add support for fixated prices and costs</li>
+<li>Handle account names that contain brackets</li>
+<li>Don't parse trailing tabs as part of the account name</li>
+<li>Escape backslashes in the narration</li>
+</ul>
+<h3 id="15-2019-01-30">1.5 (2019-01-30)<a class="headerlink" href="#15-2019-01-30" title="Permanent link"></a></h3>
+<ul>
+<li>Replace commodities in balance assertions</li>
+<li>Add support for posting-level dates</li>
+<li>Add support for hledger features</li>
+<li>Add support for balance assignments</li>
+<li>Handle comments on the same line as the payee</li>
+<li>Handle comments, tags and metadata on postings with balance assertions</li>
+<li>Handle metadata on postings with cost or price information</li>
+<li>Handle simple implicit conversions</li>
+</ul>
+<h3 id="14-2018-12-01">1.4 (2018-12-01)<a class="headerlink" href="#14-2018-12-01" title="Permanent link"></a></h3>
+<ul>
+<li>Don't parse trailing whitespace as part of the account name</li>
+<li>Replace commodities in lot costs</li>
+<li>Avoid mangling of lot cost with other lot information</li>
+<li>Don't require whitespace between {} and @ in lot information</li>
+</ul>
+<h3 id="13-2018-09-29">1.3 (2018-09-29)<a class="headerlink" href="#13-2018-09-29" title="Permanent link"></a></h3>
+<ul>
+<li>Handle tags on the same line as postings correctly</li>
+<li>Allow (commented) beancount entries in ledger input file</li>
+<li>Handle amounts without leading zeroes</li>
+</ul>
+<h3 id="12-2018-05-17">1.2 (2018-05-17)<a class="headerlink" href="#12-2018-05-17" title="Permanent link"></a></h3>
+<ul>
+<li>Updates for beancount 2.1.0:</li>
+<li>Allow UTF-8 letters and digits in account names</li>
+<li>Allow full-line comments in transactions</li>
+<li>Allow transaction tags and links on multiple lines</li>
+<li>Handle posting tags on multiple lines</li>
+<li>Always convert posting-level tags to metadata</li>
+<li>Improve parsing of the transaction header</li>
+</ul>
+<h3 id="11-2018-05-01">1.1 (2018-05-01)<a class="headerlink" href="#11-2018-05-01" title="Permanent link"></a></h3>
+<ul>
+<li>Happy International Workers' Day release!</li>
+<li>Handle block comments without indentation correctly</li>
+<li>Preserve comments for postings with lots</li>
+<li>Use beancount's <code>pushtag/poptag</code> for ledger's <code>apply tag</code></li>
+<li>Handle <code>tag</code> directives with associated commands correctly</li>
+<li>Allow option <code>link_match</code> to work with <code>tag_as_metadata: true</code></li>
+<li>Handle posting-level tags without indentation correctly with
+  <code>tag_as_metadata: false</code></li>
+<li>Ensure <code>payee_match</code> is predictable</li>
+<li>Preserve comments for postings with lots</li>
+<li>Embed an optional beancount header to the converted file to
+  specify beancount options</li>
+<li>Convert ledger metadata keys to valid beancount metadata keys</li>
+<li>Add conversion notes when accounts, commodities or metadata
+  keys are automatically renamed by ledger2beancount</li>
+<li>Add capability to ignore certain lines</li>
+<li>Keep whitespace intact when renaming account names</li>
+<li>Improve documentation on assigning payees based on transactions</li>
+<li>Add more test cases</li>
+<li>Run the test suite only if something has changed</li>
+</ul>
+<h3 id="10-2018-03-30">1.0 (2018-03-30)<a class="headerlink" href="#10-2018-03-30" title="Permanent link"></a></h3>
+<ul>
+<li>Initial release with support for the majority of features from ledger</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../contributing/" class="btn btn-neutral float-right" title="Bugs and contributions">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../guide/" class="btn btn-neutral" title="User Guide"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/beancount/ledger2beancount/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../guide/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../contributing/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>
