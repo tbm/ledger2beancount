@@ -7,14 +7,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <meta name="author" content="Stefano Zacchiroli, Martin Michlmayr">
+  <link rel="canonical" href="https://beancount.github.io/ledger2beancount/features/">
   <link rel="shortcut icon" href="../img/favicon.ico">
   <title>Features - ledger2beancount</title>
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
-  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
-  <link href="../css/toc.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
   
   <script>
     // Current page data
@@ -25,7 +25,10 @@
   
   <script src="../js/jquery-2.1.1.min.js" defer></script>
   <script src="../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/shell.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/text.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script> 
   
 </head>
@@ -36,6 +39,7 @@
 
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
         <a href=".." class="icon icon-home"> ledger2beancount</a>
         <div role="search">
@@ -46,82 +50,51 @@
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
-	  
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="..">Welcome</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Introduction</span>
-    <ul class="subnav">
-                <li class=" current">
-                    
-    <a class="current" href="./">Features</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#features">Features</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#fully-supported">Fully supported</a></li>
-        
-            <li><a class="toctree-l4" href="#partly-supported">Partly supported</a></li>
-        
-            <li><a class="toctree-l4" href="#unsupported-in-beancount">Unsupported in beancount</a></li>
-        
-            <li><a class="toctree-l4" href="#unsupported-in-ledger2beancount">Unsupported in ledger2beancount</a></li>
-        
-        </ul>
-    
-
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Welcome</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Introduction</span></p>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Features</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#fully-supported">Fully supported</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#partly-supported">Partly supported</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#unsupported-in-beancount">Unsupported in beancount</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#unsupported-in-ledger2beancount">Unsupported in ledger2beancount</a>
+    </li>
     </ul>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../compatibility/">Compatibility</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../installation/">Installation</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../usage/">Usage</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../configuration/">Configuration</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../guide/">User Guide</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">About</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../changelog/">Release notes</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../contributing/">Bugs and contributions</a>
-                </li>
-    </ul>
-	    </li>
-          
-        </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../compatibility/">Compatibility</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../usage/">Usage</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../configuration/">Configuration</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Guides</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../guide/">User guide</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">About</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../changelog/">Release notes</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../contributing/">Bugs and contributions</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../authors/">Authors and contributors</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../license/">License and copyright</a>
+                    </li>
+                </ul>
       </div>
-      &nbsp;
+    </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
@@ -153,13 +126,14 @@
       
     </li>
   </ul>
+  
   <hr/>
 </div>
           <div role="main">
             <div class="section">
               
                 <h2 id="features">Features<a class="headerlink" href="#features" title="Permanent link"></a></h2>
-<p>The majority of ledger features are supported by ledger2beancount.</p>
+<p>The majority of features from ledger are supported by ledger2beancount.</p>
 <h3 id="fully-supported">Fully supported<a class="headerlink" href="#fully-supported" title="Permanent link"></a></h3>
 <ul>
 <li>Accounts</li>
@@ -265,7 +239,7 @@ ledger2beancount:</p>
     
   </div>
 
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
       
         </div>
@@ -275,7 +249,7 @@ ledger2beancount:</p>
 
   </div>
 
-  <div class="rst-versions" role="note" style="cursor: pointer">
+  <div class="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
           <a href="https://github.com/beancount/ledger2beancount/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
@@ -291,6 +265,11 @@ ledger2beancount:</p>
     <script>var base_url = '..';</script>
     <script src="../js/theme.js" defer></script>
       <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
 
 </body>
 </html>
