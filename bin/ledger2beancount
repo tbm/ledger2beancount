@@ -910,6 +910,22 @@ sub number2int($) {
 
 
 # Does a metadata object specify information that should be used
+# for the narration of the transaction? (cf the narration_tag
+# config variable)
+# Arguments:
+#  - a metadata object
+# Returns:
+#  - 1 if the metadata info should be used to specify the narration
+sub is_meta_narration($) {
+    my ($metadata) = @_;
+
+    if ($metadata->[KEY] eq $config->{narration_tag}) {
+	return 1;
+    }
+}
+
+
+# Does a metadata object specify information that should be used
 # for the payee of the transaction? (cf the payee_tag and
 # payer_tag config variables)
 # Arguments:
@@ -1691,7 +1707,9 @@ sub process_txn($$@) {
 	if ($_->[TYPE] == TAG) {
 	    push @tags, $_ foreach @{$_->[VALUE]};
 	} elsif ($_->[TYPE] == META) {
-	    if (is_meta_payee $_) {
+	    if (is_meta_narration $_) {
+		$header->[NARRATION] = $_->[VALUE];
+	    } elsif (is_meta_payee $_) {
 		$header->[PAYEE] = $_->[VALUE];
 	    } else {
 		push @txn_parsed, $_;
@@ -1735,7 +1753,9 @@ sub process_txn($$@) {
     # ledger "apply tag"
     foreach my $a (reverse @ledger_apply) {
 	if (${$a}[0] eq "metadata") {
-	    if (is_meta_payee ${$a}[1]) {
+	    if (is_meta_narration ${$a}[1]) {
+		$header->[NARRATION] = ${$a}[1]->[VALUE];
+	    } elsif (is_meta_payee ${$a}[1]) {
 		$header->[PAYEE] = ${$a}[1]->[VALUE];
 	    } else {
 		push @txn_parsed, ${$a}[1];
@@ -1826,8 +1846,14 @@ sub process_txn($$@) {
 		push @txn_out, create_comment $i->[DEPTH], ( " " . pp_metadata $_->[KEY], $_->[VALUE]), $header foreach @{$metadata};
 	    } else {
 		foreach (@{$metadata}) {
-		    if ($_->[TYPE] == META && !$in_postings && is_meta_payee $_) {
-			$header->[PAYEE] = $_->[VALUE];
+		    if ($_->[TYPE] == META && !$in_postings) {
+			if (is_meta_narration $_) {
+			    $header->[NARRATION] = $_->[VALUE];
+			} elsif (is_meta_payee $_) {
+			    $header->[PAYEE] = $_->[VALUE];
+			} else {
+			    push @txn_out, $_;
+			}
 		    } else {
 			push @txn_out, $_;
 		    }
@@ -2105,6 +2131,7 @@ $config = set_default($config, "date_format", "%Y-%m-%d");
 $config = set_default($config, "date_format_no_year", "%m-%d");
 $config = set_default($config, "account_open_date", "1970-01-01");
 $config = set_default($config, "commodities_date", "1970-01-01");
+$config = set_default($config, "narration_tag", "");
 $config = set_default($config, "payee_tag", "");
 $config = set_default($config, "payer_tag", "");
 $config = set_default($config, "payee_match", []);
