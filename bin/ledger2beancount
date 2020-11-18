@@ -23,6 +23,7 @@ use Getopt::Long::Descriptive;
 use List::MoreUtils qw/uniq/;
 use Memoize qw/memoize flush_cache/;
 use Regexp::Common;
+use Text::sprintfn;
 use String::Interpolate qw/safe_interpolate/;
 use Unicode::Normalize;
 use YAML::XS qw/LoadFile/;
@@ -1760,6 +1761,28 @@ sub set_txn_payee($@) {
 	    last;
 	}
     }
+
+    if ($config->{payee} || $config->{narration}) {
+	my %d;
+	$d{"orig_payee"} = $header->[NARRATION];
+	foreach my $i (grep { $_->[TYPE] == META } @metadata) {
+	    $d{$i->[KEY]} = $i->[VALUE];
+	}
+	my $s = $config->{payee} . $config->{narration};
+	my @token = ( $s =~ /((?<=\()[^)]+(?=\)))/g );
+	# Define undefined but used tokens
+	foreach my $t (@token) {
+	    if (!exists $d{$t}) {
+		$d{$t} = "UNDEF";
+		print_warning_once "Token \"$t\" used in payee/narration not defined";
+	    }
+	}
+	$header->[PAYEE] = sprintfn $config->{payee}, \%d if $config->{payee};
+	$header->[NARRATION] = sprintfn $config->{narration}, \%d if $config->{narration};
+	# Extract token from sprintf string so we can delete those metadata tags
+	push @skip_tags, @token;
+    }
+
     # Return metadata but skip all metadata where the key is in @skip_tags.
     @metadata = grep { $_->[TYPE] != META || !($_->[KEY] ~~ @skip_tags)} @metadata;
 
@@ -2173,6 +2196,8 @@ $config = set_default($config, "date_format", "%Y-%m-%d");
 $config = set_default($config, "date_format_no_year", "%m-%d");
 $config = set_default($config, "account_open_date", "1970-01-01");
 $config = set_default($config, "commodities_date", "1970-01-01");
+$config = set_default($config, "payee", "");
+$config = set_default($config, "narration", "");
 $config = set_default($config, "payee_tag", "");
 $config = set_default($config, "payer_tag", "");
 $config = set_default($config, "payee_match", []);
